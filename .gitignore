@@ -1,0 +1,28 @@
+wandb
+outputs
+.hydra
+__pycache__
+lightning_logs
+data/d*
+data/I*
+data/T*
+data/FI_2010/*.txt
+data/BTC
+env
+preprocessing/digital*
+data/checkpoints/TLOB/v*
+# 가상환경
+venv/
+.lob_env/
+__pycache__/
+
+# 데이터
+data/
+*.npy
+*.csv
+*.json
+
+# 체크포인트 / 로그
+*.ckpt
+wandb/
+logs/

@@ -226,7 +226,9 @@ class Engine(LightningModule):
         # Save PyTorch checkpoint
         with self.ema.average_parameters():
             self.trainer.save_checkpoint(path_ckpt)
-            
+            model_save_path = os.path.join(cst.DIR_SAVED_MODEL, str(self.model_type), self.dir_ckpt, "model.pt")
+            os.makedirs(os.path.dirname(model_save_path), exist_ok=True)
+            torch.save(self.model.state_dict(), model_save_path)
             # Save ONNX model
             onnx_dir = os.path.join(cst.DIR_SAVED_MODEL, str(self.model_type), self.dir_ckpt, "onnx")
             os.makedirs(onnx_dir, exist_ok=True)

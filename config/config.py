@@ -54,8 +54,8 @@ class LOBSTER(Dataset):
     sampling_type: SamplingType = SamplingType.QUANTITY
     sampling_time: str = "1s"
     sampling_quantity: int = 500
-    training_stocks: list = field(default_factory=lambda: ["bitcoin"])
-    testing_stocks: list = field(default_factory=lambda: ["bitcoin"])
+    training_stocks: list = field(default_factory=lambda: ["binance"])
+    testing_stocks: list = field(default_factory=lambda: ["binance"])
     batch_size: int = 128
     
 @dataclass

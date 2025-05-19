@@ -191,10 +191,7 @@ def train(config: Config, trainer: L.Trainer, run=None):
     print("Train set shape: ", train_input.shape)
     print("Val set shape: ", val_input.shape)
     print("Test set shape: ", test_input.shape)
-    print(f"Classes distribution in train set: up {(counts_train[1][0].item()/train_labels.shape[0]):.2f} stat {(counts_train[1][1].item()/train_labels.shape[0]):.2f} down {(counts_train[1][2].item()/train_labels.shape[0]):.2f} ", )
-    print(f"Classes distribution in val set: up {(counts_val[1][0].item()/val_labels.shape[0]):.2f} stat {(counts_val[1][1].item()/val_labels.shape[0]):.2f} down {(counts_val[1][2].item()/val_labels.shape[0]):.2f} ", )
-    print(f"Classes distribution in test set: up {(counts_test[1][0].item()/test_labels.shape[0]):.2f} stat {(counts_test[1][1].item()/test_labels.shape[0]):.2f} down {(counts_test[1][2].item()/test_labels.shape[0]):.2f} ", )
-    print()
+   
     
     experiment_type = config.experiment.type
     if "FINETUNING" in experiment_type or "EVALUATION" in experiment_type:

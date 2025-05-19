@@ -21,19 +21,13 @@ class Dataset(data.Dataset):
         if type(self.y) == np.ndarray:
             self.y = torch.from_numpy(y).long()
         self.data = self.x
-        unique_labels = torch.unique(self.y)
-        print(f"🚨 라벨 고유값 (Tensor): {unique_labels}")
-        print(f"🚨 라벨 max: {self.y.max()}, min: {self.y.min()}")
-        assert torch.all((self.y >= 0) & (self.y < 3)), "❌ Tensor에 잘못된 라벨 있음"
+
     def __len__(self):
         """Denotes the total number of samples"""
         return self.length
 
     def __getitem__(self, i):
         input = self.x[i:i+self.seq_size, :]
-        if input.shape[0] < self.seq_size:  # 데이터 끝부분에서 부족할 경우 패딩
-            pad = torch.zeros(self.seq_size - input.shape[0], input.shape[1])
-            input = torch.cat([input, pad], dim=0)
         return input, self.y[i]
     
 
